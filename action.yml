@@ -19,6 +19,9 @@ inputs:
   env-file:
     description: ".env file contents"
     required: false
+  push:
+    description: "Should it push image to docker"
+    required: false
 
 runs:
   using: "composite"
@@ -51,8 +54,8 @@ runs:
       with:
         context: .
         file: ./Dockerfile
-        push: true
+        push: ${{ inputs.push }}
         tags: ${{ steps.set-image-name.outputs.image-name }}
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
+        cache-from: type=gha,scope=global
+        cache-to: type=gha,mode=max,scope=global
         builder: ${{ steps.setup-buildx.outputs.name }}
