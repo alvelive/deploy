@@ -22,6 +22,7 @@ inputs:
   push:
     description: "Should it push image to docker"
     required: false
+    default: true
 
 runs:
   using: "composite"
