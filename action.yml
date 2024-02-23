@@ -52,6 +52,8 @@ runs:
 
     - name: Build and Push Docker Image
       uses: docker/build-push-action@v5
+      env:
+        DOCKER_BUILDKIT: 1
       with:
         context: .
         file: ./Dockerfile
