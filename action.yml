@@ -59,6 +59,6 @@ runs:
         file: ./Dockerfile
         push: ${{ inputs.push }}
         tags: ${{ steps.set-image-name.outputs.image-name }}
-        cache-from: type=gha,scope=global
-        cache-to: type=gha,mode=max,scope=global
+        cache-from: type=registry,ref=${{ inputs.docker-username }}/${{ inputs.repo }}:buildcache
+        cache-to: type=registry,ref=${{ inputs.docker-username }}/${{ inputs.repo }}:buildcache,mode=max
         builder: ${{ steps.setup-buildx.outputs.name }}
