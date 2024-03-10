@@ -23,6 +23,9 @@ inputs:
     description: "Should it push image to docker"
     required: false
     default: true
+  github-username:
+    description: "GitHub username"
+    required: false
   github-pat:
     description: "GitHub Personal Access Token"
     required: false
@@ -66,4 +69,5 @@ runs:
         cache-to: type=registry,ref=${{ inputs.docker-username }}/${{ inputs.repo }}:buildcache,mode=max
         builder: ${{ steps.setup-buildx.outputs.name }}
         secrets: |
+          github_username=${{ inputs.github-username }}
           github_pat=${{ inputs.github-pat }}
