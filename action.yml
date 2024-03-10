@@ -23,6 +23,9 @@ inputs:
     description: "Should it push image to docker"
     required: false
     default: true
+  github-token:
+    description: "GitHub token"
+    required: false
 
 runs:
   using: "composite"
@@ -53,7 +56,7 @@ runs:
     - name: Build and Push Docker Image
       uses: docker/build-push-action@v5
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ inputs.github-token }}
         DOCKER_BUILDKIT: 1
       with:
         context: .
