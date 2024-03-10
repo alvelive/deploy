@@ -53,6 +53,7 @@ runs:
     - name: Build and Push Docker Image
       uses: docker/build-push-action@v5
       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DOCKER_BUILDKIT: 1
       with:
         context: .
