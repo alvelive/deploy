@@ -57,8 +57,6 @@ runs:
       uses: docker/build-push-action@v5
       env:
         DOCKER_BUILDKIT: 1
-      build-args: |
-        GITHUB_PAT=${{ inputs.github-pat }}
       with:
         context: .
         file: ./Dockerfile
@@ -67,3 +65,5 @@ runs:
         cache-from: type=registry,ref=${{ inputs.docker-username }}/${{ inputs.repo }}:buildcache
         cache-to: type=registry,ref=${{ inputs.docker-username }}/${{ inputs.repo }}:buildcache,mode=max
         builder: ${{ steps.setup-buildx.outputs.name }}
+        secrets: |
+          GITHUB_PAT=${{ inputs.github-pat }}
