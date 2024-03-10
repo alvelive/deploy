@@ -66,4 +66,4 @@ runs:
         cache-to: type=registry,ref=${{ inputs.docker-username }}/${{ inputs.repo }}:buildcache,mode=max
         builder: ${{ steps.setup-buildx.outputs.name }}
         secrets: |
-          GITHUB_PAT=${{ inputs.github-pat }}
+          github_pat=${{ inputs.github-pat }}
