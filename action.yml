@@ -73,5 +73,5 @@ runs:
         builder: ${{ steps.setup-buildx.outputs.name }}
         secrets: |
           github_username=${{ inputs.github-username }}
-          github_pat=${{ inputs.github-pat }}
+          github_token=${{ inputs.github-token }}
           npmrc=${{ inputs.npmrc }}
