@@ -24,10 +24,13 @@ inputs:
     required: false
     default: true
   github-username:
-    description: "GitHub username"
+    description: "GitHub username, will be provided as a secret named github_username"
     required: false
   github-pat:
-    description: "GitHub Personal Access Token"
+    description: "GitHub Personal Access Token, will be provided as a secret named github_pat"
+    required: false
+  npmrc:
+    description: "~/.npmrc file to use for private registries, will be provided as a secret named npmrc"
     required: false
 
 runs:
@@ -71,3 +74,4 @@ runs:
         secrets: |
           github_username=${{ inputs.github-username }}
           github_pat=${{ inputs.github-pat }}
+          npmrc=${{ inputs.npmrc }}
