@@ -72,6 +72,6 @@ runs:
         cache-to: type=registry,ref=${{ inputs.docker-username }}/${{ inputs.repo }}:buildcache,mode=max
         builder: ${{ steps.setup-buildx.outputs.name }}
         secrets: |
-          github_username=${{ inputs.github-username }}
-          github_token=${{ inputs.github-token }}
-          npmrc=${{ inputs.npmrc }}
+          "github_username=${{ inputs.github-username }}"
+          "github_token=${{ inputs.github-token }}"
+          "npmrc=${{ inputs.npmrc }}"
