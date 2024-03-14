@@ -26,7 +26,7 @@ inputs:
   github-username:
     description: "GitHub username, will be provided as a secret named github_username"
     required: false
-  github-pat:
+  github-token:
     description: "GitHub Personal Access Token, will be provided as a secret named github_pat"
     required: false
   npmrc:
