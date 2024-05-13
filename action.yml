@@ -32,6 +32,10 @@ inputs:
   npmrc:
     description: "~/.npmrc file to use for private registries, will be provided as a secret named npmrc"
     required: false
+  context:
+    description: "Path to the build context"
+    required: false
+    default: "."
 
 runs:
   using: "composite"
@@ -64,7 +68,7 @@ runs:
       env:
         DOCKER_BUILDKIT: 1
       with:
-        context: .
+        context: ${{ inputs.context }}
         file: ./Dockerfile
         push: ${{ inputs.push }}
         tags: ${{ steps.set-image-name.outputs.image-name }}
